@@ -1,6 +1,12 @@
 fs = require 'fs'
 path = require 'path'
-protagonist = require 'protagonist'
+# Only use protagonist if installed as performance boost, increase ease of installation on windows
+try
+  protagonist = require 'protagonist'
+catch e
+  console.log("protagonist not found, using drafter.js.")
+  protagonist = require 'drafter.js'
+
 
 INCLUDE = /( *)<!-- include\((.*)\) -->/gmi
 ROOT = path.dirname __dirname
